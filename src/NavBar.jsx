@@ -8,12 +8,12 @@ import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-boots
 export default function NavBar() {
   return (
     <div>
-      <Navbar bg="myRed" variant="dark" sticky="top" expand="lg" collapseOnSelect
+      <Navbar bg="myMidnightBlue" variant="dark" sticky="top" expand="lg" collapseOnSelect
         style={{paddingLeft: '2%', paddingRight: '2%'}}
       >
         <Navbar.Brand>
           <img className="logo" src={moon} /> {' '}
-          Logo
+          I Am Wintrow
         </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse style={{justifyContent: 'space-between'}}>
@@ -84,12 +84,11 @@ export default function NavBar() {
                 {`Mandarin Chinese 60 hours (Preply)`}
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#achievements">
-              Achievements
-            </Nav.Link>
-            <Nav.Link href="#youtube">
-              YouTube
-            </Nav.Link>
+            <NavDropdown title="YouTube">
+              <NavDropdown.Item href="#youtube/mitchell-wintrow">
+                {`My Channel (Mitchell Wintrow)`}
+              </NavDropdown.Item>
+            </NavDropdown>
           </Nav>
           <Form className="d-flex">
             <FormControl
