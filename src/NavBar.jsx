@@ -77,6 +77,12 @@ export default function NavBar() {
               <NavDropdown.Item href="#certifications/tesol">
                 {`Teaching English to Speakers of Other Languages (International Open Academy)`}
               </NavDropdown.Item>
+              <NavDropdown.Item href="#certifications/vietnamese">
+                {`Vietnamese 60 hours (Preply)`}
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#certifications/chinese-mandarin">
+                {`Mandarin Chinese 60 hours (Preply)`}
+              </NavDropdown.Item>
             </NavDropdown>
             <Nav.Link href="#achievements">
               Achievements
