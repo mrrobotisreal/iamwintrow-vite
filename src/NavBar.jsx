@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './NavBar.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import moon from './moonLogo.png';
@@ -6,6 +6,10 @@ import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-boots
 // react logo https://www.patterns.dev/img/reactjs/react-logo@3x.svg
 
 export default function NavBar() {
+  /* STATE */
+  const [searchEntry, setSearchEntry] = useState('');
+
+  /* HANDLERS */
   function handleFlashFireClick(e) {
     e.preventDefault();
     window.open('http://3.137.200.234/');
@@ -14,6 +18,17 @@ export default function NavBar() {
   function handleYoutubeChannelClick(e) {
     e.preventDefault();
     window.open('https://www.youtube.com/channel/UCvL509Dm5ZfVnWNYpblFyRg');
+  }
+
+  function handleSearchEntry(e) {
+    console.log('search entry:-> ', searchEntry);
+    setSearchEntry(e.target.value);
+  }
+
+  function handleSearchClick(e) {
+    e.preventDefault();
+    window.open('https://duckduckgo.com/?q=' + searchEntry, 'searchTermWindow');
+    setSearchEntry('');
   }
 
   return (
@@ -106,8 +121,9 @@ export default function NavBar() {
               placeholder="Search Online"
               className="me-2"
               aria-label="Search"
+              onChange={handleSearchEntry}
             />
-            <Button variant="outline-success">Search</Button>
+            <Button variant="outline-success" onClick={handleSearchClick}>Search</Button>
           </Form>
         </Navbar.Collapse>
       </Navbar>
