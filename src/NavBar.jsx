@@ -21,7 +21,7 @@ export default function NavBar() {
             <Nav.Link href="#home">
               Home
             </Nav.Link>
-            <NavDropdown title="Blog">
+            <NavDropdown title="Blogs">
               <NavDropdown.Item href="#blog/vanilla-js">
                 Vanilla JS
               </NavDropdown.Item>
@@ -38,12 +38,46 @@ export default function NavBar() {
                 Java
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#blog">
-              Blog
-            </Nav.Link>
-            <Nav.Link href="#projects">
-              Projects
-            </Nav.Link>
+            <NavDropdown title="Projects">
+              <NavDropdown.Item href="#projects/flash-fire">
+                {`FlashFire (Flashcards)`}
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#projects/codybot2000">
+                Codybot2000
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#projects/blue-steel">
+                Blue Steel Brand
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#projects/twiddler">
+                Twiddler
+              </NavDropdown.Item>
+            </NavDropdown>
+            <NavDropdown title="Certifications">
+              <NavDropdown.Item href="#certifications/hack-reactor">
+                {`Hack Reactor Advanced Software Engineering (Galvanize)`}
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#certifications/pre-security">
+                {`Pre-Security (TryHackMe)`}
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#certifications/js-weird-parts">
+                {`JavaScript: The Weird Parts (Udemy)`}
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#certifications/linux-cli">
+                {`Linux Command Line (Udemy)`}
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#certifications/osint">
+                {`Open Source Intelligence Fundamentals (Udemy)`}
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#certifications/tefl">
+                {`Master: Teaching English as a Foreign Language (Accreditat/TEFL Full Circle)`}
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#certifications/teyl">
+                {`Teaching English to Young Learners (Accreditat/TEFL Full Circle)`}
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#certifications/tesol">
+                {`Teaching English to Speakers of Other Languages (International Open Academy)`}
+              </NavDropdown.Item>
+            </NavDropdown>
             <Nav.Link href="#achievements">
               Achievements
             </Nav.Link>
