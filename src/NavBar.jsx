@@ -6,6 +6,16 @@ import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-boots
 // react logo https://www.patterns.dev/img/reactjs/react-logo@3x.svg
 
 export default function NavBar() {
+  function handleFlashFireClick(e) {
+    e.preventDefault();
+    window.open('http://3.137.200.234/');
+  }
+
+  function handleYoutubeChannelClick(e) {
+    e.preventDefault();
+    window.open('https://www.youtube.com/channel/UCvL509Dm5ZfVnWNYpblFyRg');
+  }
+
   return (
     <div>
       <Navbar bg="myMidnightBlue" variant="dark" sticky="top" expand="lg" collapseOnSelect
@@ -39,7 +49,7 @@ export default function NavBar() {
               </NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Projects">
-              <NavDropdown.Item href="#projects/flash-fire">
+              <NavDropdown.Item onClick={handleFlashFireClick}>
                 {`FlashFire (Flashcards)`}
               </NavDropdown.Item>
               <NavDropdown.Item href="#projects/codybot2000">
@@ -85,7 +95,7 @@ export default function NavBar() {
               </NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="YouTube">
-              <NavDropdown.Item href="#youtube/mitchell-wintrow">
+              <NavDropdown.Item onClick={handleYoutubeChannelClick}>
                 {`My Channel (Mitchell Wintrow)`}
               </NavDropdown.Item>
             </NavDropdown>
