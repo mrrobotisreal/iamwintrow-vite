@@ -12,6 +12,7 @@ app.use(express.static(path.join(__dirname, "../index.html")));
 
 app.get('/comments', (req, res) => {
   console.log('comments route');
+  console.log('ip is -> ', req.socket.remoteAddress);
 });
 
 app.listen(process.env.PORT);
