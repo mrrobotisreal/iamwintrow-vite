@@ -11,13 +11,21 @@ function GETComments() {
   return pool.query(`SELECT * FROM comments`);
 }
 
-function POSTComment(comment, poster) {
+function POSTComment(comment, poster, cb = () => {}) {
   let date = Date.now();
+  console.log('comment -> ', comment);
+  console.log('poster -> ', poster);
+  console.log('date -> ', date);
   let query = {
     text: 'INSERT INTO comments (poster, comment, date) VALUES ($1, $2, $3)',
     values: [poster, comment, date]
   };
-  pool.query(query);
+  pool.query(query)
+    .then(({ rows }) => {
+      console.log('successfully stored in database');
+      cb(null, 'success');
+    })
+    .catch((err) => console.error(err));
 }
 
 function POSTVisitors(ip) {

@@ -1,18 +1,38 @@
 require("dotenv").config();
 const express = require("express");
+const cors = require('cors');
 const path = require("path");
 const bodyParser = require('body-parser');
-const db = require('./db.js');
+const { GETComments, POSTComment, POSTVisitors } = require('./db.js');
 
 const app = express();
 
 // Serves up all static and generated assets in ../client/dist.
+app.use(cors({
+  origin: ['http://localhost:3000'],
+  methods: ['GET', 'POST']
+}))
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, "../index.html")));
+// app.use(express.static(path.join(__dirname, "../index.html")));
+
+app.post('/', (req, res) => {
+  console.log('tracking visitors');
+  console.log('ip is -> ', req.socket.remoteAddress);
+});
 
 app.get('/comments', (req, res) => {
-  console.log('comments route');
-  console.log('ip is -> ', req.socket.remoteAddress);
+  console.log('getting comments');
+});
+
+app.post('/comments', (req, res) => {
+  console.log('posting a comment');
+  POSTComment(req.body.comment, req.body.poster, (err, success) => {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log('successfully returned from database');
+    }
+  });
 });
 
 app.listen(process.env.PORT);

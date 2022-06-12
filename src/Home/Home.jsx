@@ -1,16 +1,42 @@
 import { useState } from 'react';
 import { Container, Row, Col, Button, Form, FormControl } from 'react-bootstrap';
+import axios from 'axios';
 
 import './Home.css';
 
 function Home(props) {
   // STATE
+  const [poster, setPoster] = useState('');
   const [commentEntry, setCommentEntry] = useState('');
   const { darkMode } = props;
 
   // HANDLERS
+  function handlePosterEntry(e) {
+    setPoster(e.target.value);
+  }
+
   function handleCommentEntry(e) {
     setCommentEntry(e.target.value);
+  }
+
+  function handleCommentClick(e) {
+    if (poster === '') {
+      alert('You must write your name or handle to leave a comment');
+      return;
+    }
+    if (commentEntry === '') {
+      alert('You must write something to leave a comment');
+      return;
+    }
+    let options = {
+      poster: poster,
+      comment: commentEntry
+    }
+    axios.post('http://localhost:54321/comments', options)
+      .then(({ data }) => {
+        console.log('successfully sent http request for comments');
+      })
+      .catch((err) => console.error(err));
   }
 
   return (
@@ -56,6 +82,22 @@ function Home(props) {
         <Row>
           <Col className="leaveComment">
             <Form>
+              <Form.Label>Who are you?</Form.Label>
+              <FormControl
+                style={{backgroundColor: darkMode ? '#606060' : 'white', color: darkMode ? 'white' : 'black'}}
+                type="text"
+                placeholder="Name Or Handle Goes Here"
+                className="me-2"
+                aria-label="Who are you?"
+                onChange={handlePosterEntry}
+                required
+              />
+            </Form>
+          </Col>
+        </Row>
+        <Row>
+          <Col className="leaveComment">
+            <Form>
               <Form.Label>Leave your comment here:</Form.Label>
               <FormControl
                 style={{backgroundColor: darkMode ? '#606060' : 'white', color: darkMode ? 'white' : 'black'}}
@@ -63,9 +105,10 @@ function Home(props) {
                 rows={4}
                 aria-label="Leave a comment here"
                 onChange={handleCommentEntry}
+                required
               />
             </Form>
-            <Button className="commentButton" variant="outline-success">
+            <Button onClick={handleCommentClick} className="commentButton" variant="outline-success">
               Post Comment
             </Button>
           </Col>
