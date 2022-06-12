@@ -6,6 +6,7 @@
 
 .aboutMe {
   text-align: center;
+  font-family: 'Roboto Mono', monospace;
 }
 
 .commentTitle {
@@ -23,4 +24,12 @@
 
 .bottomContainer {
   padding-bottom: 4%;
+  justify-content: center;
+  align-items: center;
+}
+
+.vid {
+  text-align: center;
+  border-radius: 12px;
+  margin-left: 28%;
 }

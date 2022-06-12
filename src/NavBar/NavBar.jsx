@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // import { useDispatch, useSelector } from 'react-redux';
 import './NavBar.css';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -10,10 +10,16 @@ import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-boots
 export default function NavBar(props) {
   /* STATE */
   const [searchEntry, setSearchEntry] = useState('');
+  const [screenWidth, setScreenWidth] = useState(992);
   // const dispatch = useDispatch();
   // const darkMode = useSelector(state => state.darkMode);
   const { toggleDarkMode } = props;
   const { darkMode } = props;
+
+  useEffect(() => {
+    setScreenWidth(window.innerWidth);
+    console.log('inner width be changin yo');
+  }, [window.innerWidth]);
 
   /* HANDLERS */
   function handleFlashFireClick(e) {
@@ -128,6 +134,11 @@ export default function NavBar(props) {
                 {`My Channel (Mitchell Wintrow)`}
               </NavDropdown.Item>
             </NavDropdown>
+            <div className="translationDiv translatediv"
+              style={{marginLeft: window.innerWidth >= 992 ? '8%' : '0%'}}
+            >
+              <div id="google_translate_element"></div>
+            </div>
           </Nav>
           <Form className="d-flex">
             <FormControl

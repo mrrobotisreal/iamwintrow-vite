@@ -26,13 +26,20 @@ app.get('/comments', (req, res) => {
 
 app.post('/comments', (req, res) => {
   console.log('posting a comment');
-  POSTComment(req.body.comment, req.body.poster, (err, success) => {
-    if (err) {
-      console.error(err);
-    } else {
-      console.log('successfully returned from database');
-    }
-  });
+  var ip = req.headers['x-forwarded-for'] ||
+     req.connection.remoteAddress ||
+     req.socket.remoteAddress ||
+     req.connection.socket.remoteAddress;
+  // console.log('ip is -> ', req.socket.remoteAddress);
+  console.log('ip is -> ', ip);
+
+  // POSTComment(req.body.comment, req.body.poster, (err, success) => {
+  //   if (err) {
+  //     console.error(err);
+  //   } else {
+  //     console.log('successfully returned from database');
+  //   }
+  // });
 });
 
 app.listen(process.env.PORT);
