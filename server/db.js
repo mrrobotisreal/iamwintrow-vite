@@ -14,14 +14,19 @@ function GETComments() {
 function POSTComment(comment, poster) {
   let date = Date.now();
   let query = {
-    text: 'EXPLAIN ANALYZE INSERT INTO comments (poster, comment, date) VALUES ($1, $2, $3)',
+    text: 'INSERT INTO comments (poster, comment, date) VALUES ($1, $2, $3)',
     values: [poster, comment, date]
   };
   pool.query(query);
 }
 
-function POSTVisitors(ip, date) {
-  pool.query();
+function POSTVisitors(ip) {
+  let date = Date.now();
+  let query = {
+    text: 'INSERT INTO visitors (ip, date) VALUES ($1, $2)',
+    values: [ip, date]
+  }
+  pool.query(query);
 }
 
 module.exports.GETComments = GETComments;
