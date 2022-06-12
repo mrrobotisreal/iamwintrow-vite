@@ -14,7 +14,7 @@ function Home(props) {
   }
 
   return (
-    <div style={{backgroundColor: darkMode ? 'black' : 'white'}} className="bottomContainer">
+    <div style={{backgroundColor: darkMode ? 'black' : 'white', color: darkMode ? 'white' : 'black'}} className="bottomContainer">
       <Container fluid="md">
         <Row>
           <Col>

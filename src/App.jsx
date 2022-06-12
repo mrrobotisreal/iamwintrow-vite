@@ -12,10 +12,10 @@ function App() {
   }
 
   return (
-    <>
+    <div style={{backgroundColor: darkMode ? 'black' : 'white'}}>
       <NavBar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       <Home darkMode={darkMode} />
-    </>
+    </div>
   )
 }
 
