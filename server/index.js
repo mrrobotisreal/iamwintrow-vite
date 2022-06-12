@@ -9,7 +9,7 @@ const app = express();
 
 // Serves up all static and generated assets in ../client/dist.
 app.use(cors({
-  origin: ['http://localhost:3000'],
+  origin: ['http://localhost:3000', 'http://localhost:3300'],
   methods: ['GET', 'POST']
 }))
 app.use(bodyParser.json());
@@ -18,6 +18,8 @@ app.use(bodyParser.json());
 app.post('/', (req, res) => {
   console.log('tracking visitors');
   console.log('ip is -> ', req.socket.remoteAddress);
+  console.log('body ip is -> ', req.body.ip);
+  res.send('done');
 });
 
 app.get('/comments', (req, res) => {
