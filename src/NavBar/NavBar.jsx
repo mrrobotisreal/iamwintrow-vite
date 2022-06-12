@@ -131,6 +131,7 @@ export default function NavBar(props) {
           </Nav>
           <Form className="d-flex">
             <FormControl
+              style={{backgroundColor: darkMode ? 'black' : 'white', color: darkMode ? 'white' : 'black'}}
               type="search"
               placeholder="Search Online"
               className="me-2"
