@@ -13,7 +13,7 @@ function Home() {
   }
 
   return (
-    <div>
+    <div className="bottomContainer">
       <Container fluid="md">
         <Row>
           <Col>

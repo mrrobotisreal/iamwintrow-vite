@@ -31,6 +31,9 @@ export default function NavBar() {
     window.open('https://duckduckgo.com/?q=' + searchEntry, 'searchTermWindow');
     setSearchEntry('');
   }
+  function toggleDarkMode(e) {
+    //
+  }
 
   return (
     <div>
@@ -38,7 +41,7 @@ export default function NavBar() {
         style={{paddingLeft: '2%', paddingRight: '2%'}}
       >
         <Navbar.Brand>
-          <img className="logo" src={moon} /> {' '}
+          <img onClick={toggleDarkMode} className="logo" src={moon} /> {' '}
           I Am Wintrow
         </Navbar.Brand>
         <Navbar.Toggle />
