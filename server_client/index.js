@@ -8,7 +8,7 @@ const router = require('./routes');
 
 const app = express();
 app.use(compression());
-app.use(express.static(path.join(__dirname, './dist')));
+app.use(express.static(path.join(__dirname, '../dist')));
 app.use(bodyParser.json());
 app.use(router);
 
