@@ -8,6 +8,7 @@ import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-boots
 export default function NavBar() {
   /* STATE */
   const [searchEntry, setSearchEntry] = useState('');
+  const [darkMode, setDarkmode] = useState(true);
 
   /* HANDLERS */
   function handleFlashFireClick(e) {
