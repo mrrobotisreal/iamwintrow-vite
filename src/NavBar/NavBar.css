@@ -2,6 +2,10 @@
   background-color: midnightblue;
 }
 
+.bg-mySkyBlue {
+  background-color: skyblue;
+}
+
 .logo {
   width: 100px;
   height: 100px;

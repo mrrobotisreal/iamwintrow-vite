@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
 import './NavBar.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import moon from './moonLogo.png';
+import sun from './sunLogo.png';
 import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
 // react logo https://www.patterns.dev/img/reactjs/react-logo@3x.svg
 
-export default function NavBar() {
+export default function NavBar(props) {
   /* STATE */
   const [searchEntry, setSearchEntry] = useState('');
-  const [darkMode, setDarkmode] = useState(true);
+  // const dispatch = useDispatch();
+  // const darkMode = useSelector(state => state.darkMode);
+  const { toggleDarkMode } = props;
+  const { darkMode } = props;
 
   /* HANDLERS */
   function handleFlashFireClick(e) {
@@ -31,17 +36,22 @@ export default function NavBar() {
     window.open('https://duckduckgo.com/?q=' + searchEntry, 'searchTermWindow');
     setSearchEntry('');
   }
-  function toggleDarkMode(e) {
-    //
+  function handleDarkModeToggle(e) {
+    console.log('click!');
+    console.log('darkMode is: ', darkMode);
+    e.preventDefault();
+    toggleDarkMode();
   }
 
   return (
     <div>
-      <Navbar bg="myMidnightBlue" variant="dark" sticky="top" expand="lg" collapseOnSelect
+      <Navbar bg={darkMode ? 'myMidnightBlue' : 'mySkyBlue'} variant={darkMode ? 'dark' : 'light'} sticky="top" expand="lg" collapseOnSelect
         style={{paddingLeft: '2%', paddingRight: '2%'}}
       >
         <Navbar.Brand>
-          <img onClick={toggleDarkMode} className="logo" src={moon} /> {' '}
+          <img onClick={handleDarkModeToggle} className="logo" src={darkMode ? moon : sun}
+            style={{cursor: 'pointer', backgroundColor: darkMode ? '#FFFFE0' : 'yellow'}}
+          /> {' '}
           I Am Wintrow
         </Navbar.Brand>
         <Navbar.Toggle />

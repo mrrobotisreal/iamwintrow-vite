@@ -3,9 +3,10 @@ import { Container, Row, Col, Button, Form, FormControl } from 'react-bootstrap'
 
 import './Home.css';
 
-function Home() {
+function Home(props) {
   // STATE
   const [commentEntry, setCommentEntry] = useState('');
+  const { darkMode } = props;
 
   // HANDLERS
   function handleCommentEntry(e) {
@@ -13,7 +14,7 @@ function Home() {
   }
 
   return (
-    <div className="bottomContainer">
+    <div style={{backgroundColor: darkMode ? 'black' : 'white'}} className="bottomContainer">
       <Container fluid="md">
         <Row>
           <Col>
@@ -57,6 +58,7 @@ function Home() {
             <Form>
               <Form.Label>Leave your comment here:</Form.Label>
               <FormControl
+                style={{backgroundColor: darkMode ? '#606060' : 'white', color: darkMode ? 'white' : 'black'}}
                 as="textarea"
                 rows={4}
                 aria-label="Leave a comment here"
