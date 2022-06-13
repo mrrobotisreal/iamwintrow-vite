@@ -19,7 +19,13 @@ app.post('/', (req, res) => {
   console.log('tracking visitors');
   console.log('ip is -> ', req.socket.remoteAddress);
   console.log('body ip is -> ', req.body.ip);
-  res.send('done');
+  POSTVisitors(req.body.ip, (err, success) => {
+    if (err) {
+      console.error(err);
+    } else {
+      res.send('Got it!');
+    }
+  });
 });
 
 app.get('/comments', (req, res) => {
