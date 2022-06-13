@@ -28,13 +28,17 @@ function POSTComment(comment, poster, cb = () => {}) {
     .catch((err) => console.error(err));
 }
 
-function POSTVisitors(ip) {
+function POSTVisitors(ip, cb = () => {}) {
   let date = Date.now();
   let query = {
     text: 'INSERT INTO visitors (ip, date) VALUES ($1, $2)',
     values: [ip, date]
   }
-  pool.query(query);
+  pool.query(query)
+    .then((res) => {
+      cb(null, 'success');
+    })
+    .catch((err) => console.error(err));
 }
 
 module.exports.GETComments = GETComments;
