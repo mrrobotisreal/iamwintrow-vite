@@ -18,7 +18,6 @@ export default function NavBar(props) {
 
   useEffect(() => {
     setScreenWidth(window.innerWidth);
-    console.log('inner width be changin yo');
   }, [window.innerWidth]);
 
   /* HANDLERS */

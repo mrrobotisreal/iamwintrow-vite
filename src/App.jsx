@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import NavBar from './NavBar/NavBar.jsx';
 import Home from  './Home/Home.jsx';
 

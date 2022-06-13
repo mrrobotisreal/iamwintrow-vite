@@ -9,12 +9,12 @@ router.get('/', (req, res) => {
   let options = {
     ip: ip,
   };
-  axios.post('http://localhost:54321/', options)
-    .then(({ data }) => {
-      console.log('data -> ', data);
-      res.send(data);
-    })
-    .catch((err) => console.error(err));
+  // axios.post('http://localhost:54321/', options)
+  //   .then(({ data }) => {
+  //     console.log('data -> ', data);
+  //     res.send(data);
+  //   })
+  //   .catch((err) => console.error(err));
 });
 
 module.exports = router;
