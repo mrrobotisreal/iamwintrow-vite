@@ -41,13 +41,13 @@ app.post('/comments', (req, res) => {
   // console.log('ip is -> ', req.socket.remoteAddress);
   console.log('ip is -> ', ip);
 
-  // POSTComment(req.body.comment, req.body.poster, (err, success) => {
-  //   if (err) {
-  //     console.error(err);
-  //   } else {
-  //     console.log('successfully returned from database');
-  //   }
-  // });
+  POSTComment(req.body.comment, req.body.poster, ip, (err, success) => {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log('successfully returned from database');
+    }
+  });
 });
 
 app.listen(process.env.PORT);
