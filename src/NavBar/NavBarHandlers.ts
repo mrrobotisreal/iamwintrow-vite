@@ -31,12 +31,12 @@ export function handleYoutubeChannelClick(e) {
 
 export function handleCertsHackReactor(e) {
   e.preventDefault();
-  window.open('../../dist/assets/hackReactor.pdf');
+  window.open('./assets/hackReactor.pdf');
 }
 
 export function handleCertsPreSecurity(e) {
   e.preventDefault();
-  window.open();
+  window.open('./assets/thm-presecurity-cert.png');
 }
 
 export default {
