@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "server-dev": "npx nodemon --watch server index.js"
+    "preview": "vite preview"
   },
   "dependencies": {
     "axios": "^0.27.2",

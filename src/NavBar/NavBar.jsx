@@ -5,6 +5,13 @@ import 'bootstrap/dist/css/bootstrap.css';
 import moon from './moonLogo.png';
 import sun from './sunLogo.png';
 import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+
+import {
+  handleFlashFireClick,
+  handleYoutubeChannelClick,
+  handleCertsHackReactor,
+  handleCertsPreSecurity
+} from './NavBarHandlers.ts';
 // react logo https://www.patterns.dev/img/reactjs/react-logo@3x.svg
 
 export default function NavBar(props) {
@@ -21,15 +28,15 @@ export default function NavBar(props) {
   }, [window.innerWidth]);
 
   /* HANDLERS */
-  function handleFlashFireClick(e) {
-    e.preventDefault();
-    window.open('http://3.137.200.234/');
-  }
+  // function handleFlashFireClick(e) {
+  //   e.preventDefault();
+  //   window.open('http://3.137.200.234/');
+  // }
 
-  function handleYoutubeChannelClick(e) {
-    e.preventDefault();
-    window.open('https://www.youtube.com/channel/UCvL509Dm5ZfVnWNYpblFyRg');
-  }
+  // function handleYoutubeChannelClick(e) {
+  //   e.preventDefault();
+  //   window.open('https://www.youtube.com/channel/UCvL509Dm5ZfVnWNYpblFyRg');
+  // }
 
   function handleSearchEntry(e) {
     console.log('search entry:-> ', searchEntry);
@@ -41,6 +48,7 @@ export default function NavBar(props) {
     window.open('https://duckduckgo.com/?q=' + searchEntry, 'searchTermWindow');
     setSearchEntry('');
   }
+
   function handleDarkModeToggle(e) {
     console.log('click!');
     console.log('darkMode is: ', darkMode);
@@ -97,34 +105,34 @@ export default function NavBar(props) {
               </NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Certifications">
-              <NavDropdown.Item href="#certifications/hack-reactor">
+              <NavDropdown.Item onClick={handleCertsHackReactor}>
                 {`Hack Reactor Advanced Software Engineering (Galvanize)`}
               </NavDropdown.Item>
-              <NavDropdown.Item href="#certifications/pre-security">
+              <NavDropdown.Item onClick={handleCertsPreSecurity}>
                 {`Pre-Security (TryHackMe)`}
               </NavDropdown.Item>
-              <NavDropdown.Item href="#certifications/js-weird-parts">
+              <NavDropdown.Item>
                 {`JavaScript: The Weird Parts (Udemy)`}
               </NavDropdown.Item>
-              <NavDropdown.Item href="#certifications/linux-cli">
+              <NavDropdown.Item>
                 {`Linux Command Line (Udemy)`}
               </NavDropdown.Item>
-              <NavDropdown.Item href="#certifications/osint">
+              <NavDropdown.Item>
                 {`Open Source Intelligence Fundamentals (Udemy)`}
               </NavDropdown.Item>
-              <NavDropdown.Item href="#certifications/tefl">
+              <NavDropdown.Item>
                 {`Master: Teaching English as a Foreign Language (Accreditat/TEFL Full Circle)`}
               </NavDropdown.Item>
-              <NavDropdown.Item href="#certifications/teyl">
+              <NavDropdown.Item>
                 {`Teaching English to Young Learners (Accreditat/TEFL Full Circle)`}
               </NavDropdown.Item>
-              <NavDropdown.Item href="#certifications/tesol">
+              <NavDropdown.Item>
                 {`Teaching English to Speakers of Other Languages (International Open Academy)`}
               </NavDropdown.Item>
-              <NavDropdown.Item href="#certifications/vietnamese">
+              <NavDropdown.Item>
                 {`Vietnamese 60 hours (Preply)`}
               </NavDropdown.Item>
-              <NavDropdown.Item href="#certifications/chinese-mandarin">
+              <NavDropdown.Item>
                 {`Mandarin Chinese 60 hours (Preply)`}
               </NavDropdown.Item>
             </NavDropdown>
